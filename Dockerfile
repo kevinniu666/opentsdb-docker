@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 ENV TINI_VERSION v0.18.0
-ENV TSDB_VERSION 2.3.1
+ENV TSDB_VERSION 2.2.0
 ENV HBASE_VERSION 1.4.4
 ENV GNUPLOT_VERSION 5.2.4
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
@@ -10,7 +10,7 @@ ENV ALPINE_PACKAGES "rsyslog bash openjdk8 make wget libgd libpng libjpeg libweb
 ENV BUILD_PACKAGES "build-base autoconf automake git python cairo-dev pango-dev gd-dev lua-dev readline-dev libpng-dev libjpeg-turbo-dev libwebp-dev"
 ENV HBASE_OPTS "-XX:+UseConcMarkSweepGC -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
 ENV JVMARGS "-XX:+UseConcMarkSweepGC -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -enableassertions -enablesystemassertions"
-
+RUN echo "151.101.52.209 central.maven.org" >> /etc/hosts
 # Tini is a tiny init that helps when a container is being culled to stop things nicely
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-static-amd64 /tini
 RUN chmod +x /tini
@@ -24,14 +24,11 @@ RUN apk --update add apk-tools \
     && mkdir -p /opt/opentsdb
 
 WORKDIR /opt/opentsdb/
-
+COPY v${TSDB_VERSION}.zip ./
 # Add build deps, build opentsdb, and clean up afterwards.
 RUN apk add --virtual builddeps \
     ${BUILD_PACKAGES} \
   && : Install OpenTSDB and scripts \
-  && wget --no-check-certificate \
-    -O v${TSDB_VERSION}.zip \
-    https://github.com/OpenTSDB/opentsdb/archive/v${TSDB_VERSION}.zip \
   && unzip v${TSDB_VERSION}.zip \
   && rm v${TSDB_VERSION}.zip \
   && cd /opt/opentsdb/opentsdb-${TSDB_VERSION} \
