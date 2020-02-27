@@ -42,7 +42,7 @@ RUN apk add --virtual builddeps \
   && rm -rf /opt/opentsdb/opentsdb-${TSDB_VERSION}
 
 RUN cd /tmp && \
-    wget https://datapacket.dl.sourceforge.net/project/gnuplot/gnuplot/${GNUPLOT_VERSION}/gnuplot-${GNUPLOT_VERSION}.tar.gz && \
+    wget https://excellmedia.dl.sourceforge.net/project/gnuplot/gnuplot/${GNUPLOT_VERSION}/gnuplot-${GNUPLOT_VERSION}.tar.gz && \
     tar xzf gnuplot-${GNUPLOT_VERSION}.tar.gz && \
     cd gnuplot-${GNUPLOT_VERSION} && \
     ./configure && \
