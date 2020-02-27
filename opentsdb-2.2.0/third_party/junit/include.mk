@@ -11,11 +11,11 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this library.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
 JUNIT_VERSION := 4.11
 JUNIT := third_party/junit/junit-$(JUNIT_VERSION).jar
-JUNIT_BASE_URL := http://repo1.maven.org/maven2/junit/junit/$(JUNIT_VERSION)
+JUNIT_BASE_URL := https://repo1.maven.org/maven2/junit/junit/$(JUNIT_VERSION)
 
 $(JUNIT): $(JUNIT).md5
 	set dummy "$(JUNIT_BASE_URL)" "$(JUNIT)"; shift; $(FETCH_DEPENDENCY)

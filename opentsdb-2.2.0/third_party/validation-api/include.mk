@@ -11,11 +11,11 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this library.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
 VALIDATION_API_VERSION := 1.0.0.GA
 VALIDATION_API := third_party/validation-api/validation-api-$(VALIDATION_API_VERSION).jar
-VALIDATION_API_BASE_URL := http://repo1.maven.org/maven2/javax/validation/validation-api/$(VALIDATION_API_VERSION)
+VALIDATION_API_BASE_URL := https://repo1.maven.org/maven2/javax/validation/validation-api/$(VALIDATION_API_VERSION)
 
 $(VALIDATION_API): $(VALIDATION_API).md5
 	set dummy "$(VALIDATION_API_BASE_URL)" "$(VALIDATION_API)"; shift; $(FETCH_DEPENDENCY)

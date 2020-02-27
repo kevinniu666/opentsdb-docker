@@ -11,11 +11,11 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this library.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
 HAMCREST_VERSION := 1.3
 HAMCREST := third_party/hamcrest/hamcrest-core-$(HAMCREST_VERSION).jar
-HAMCREST_BASE_URL := http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/$(HAMCREST_VERSION)
+HAMCREST_BASE_URL := https://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/$(HAMCREST_VERSION)
 
 $(HAMCREST): $(HAMCREST).md5
 	set dummy "$(HAMCREST_BASE_URL)" "$(HAMCREST)"; shift; $(FETCH_DEPENDENCY)

@@ -11,11 +11,11 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this library.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
 ASYNCHBASE_VERSION := 1.7.1
 ASYNCHBASE := third_party/hbase/asynchbase-$(ASYNCHBASE_VERSION).jar
-ASYNCHBASE_BASE_URL := http://repo1.maven.org/maven2/org/hbase/asynchbase/$(ASYNCHBASE_VERSION)
+ASYNCHBASE_BASE_URL := https://repo1.maven.org/maven2/org/hbase/asynchbase/$(ASYNCHBASE_VERSION)
 
 $(ASYNCHBASE): $(ASYNCHBASE).md5
 	set dummy "$(ASYNCHBASE_BASE_URL)" "$(ASYNCHBASE)"; shift; $(FETCH_DEPENDENCY)

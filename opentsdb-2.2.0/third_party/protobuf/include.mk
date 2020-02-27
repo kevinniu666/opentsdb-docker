@@ -11,11 +11,11 @@
 # GNU Lesser General Public License for more details.
 #
 # You should have received a copy of the GNU Lesser General Public License
-# along with this library.  If not, see <http://www.gnu.org/licenses/>.
+# along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
 PROTOBUF_VERSION := 2.5.0
 PROTOBUF := third_party/protobuf/protobuf-java-$(PROTOBUF_VERSION).jar
-PROTOBUF_BASE_URL := http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/$(PROTOBUF_VERSION)
+PROTOBUF_BASE_URL := https://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/$(PROTOBUF_VERSION)
 
 $(PROTOBUF): $(PROTOBUF).md5
 	set dummy "$(PROTOBUF_BASE_URL)" "$(PROTOBUF)"; shift; $(FETCH_DEPENDENCY)
