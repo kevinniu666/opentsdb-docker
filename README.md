@@ -31,3 +31,5 @@ Similarly to the opentsdb.conf file, volume-mount your version at /opt/hbase/con
 
 ### I want to use specific opentsdb plugins!
 Volume-mount the plugins into /opentsdb-plugins (most people wont be using these)
+###
+added travis
